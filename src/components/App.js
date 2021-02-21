@@ -23,12 +23,28 @@ const App = () => {
   }, []);
 
   const onFavPlanetSelect = (e, planet) => {
+    const id = planet.id;
     if (e.target.checked) {
       setFavPlanet((oldArray) => [
         ...oldArray,
-        { id: planet.id, isFavourite: !planet.isFavourite, name: planet.name },
+        { id: planet.id, isFavourite: e.target.checked, name: planet.name },
       ]);
     }
+
+    const updateList = list.map((planet) => {
+      if (planet.id === id) {
+        return {
+          id: planet.id,
+          isFavourite: e.target.checked,
+          name: planet.name,
+        };
+      } else {
+        return planet;
+      }
+    });
+
+    setList(updateList);
+
     if (!e.target.checked) {
       const name = planet.name;
       const removePlanet = favPlanet.filter((planet) => planet.name !== name);
@@ -52,6 +68,7 @@ const App = () => {
                   onFavPlanetSelect={onFavPlanetSelect}
                   list={list}
                   onPlanetSelect={onPlanetSelect}
+                  favPlanet={favPlanet}
                 />
                 <PlanetDetail selectedPlanet={selectedPlanet} />
               </div>
@@ -61,7 +78,12 @@ const App = () => {
 
         <Route
           path="/favourites"
-          render={() => <Favourites favPlanets={favPlanet} />}
+          render={() => (
+            <Favourites
+              favPlanets={favPlanet}
+              onFavPlanetSelect={onFavPlanetSelect}
+            />
+          )}
         />
       </Router>
     </>

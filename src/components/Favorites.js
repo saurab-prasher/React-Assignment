@@ -1,13 +1,14 @@
-import { render } from "@testing-library/react";
 import React from "react";
 
 const Favourites = ({ favPlanets }) => {
-  console.log(favPlanets);
-
-  const renderFavPlanents = favPlanets.map((planet) => {
-    return <div key={planet.id}>{planet.name}</div>;
+  const renderFavs = favPlanets.map((planet) => {
+    return (
+      <div key={planet.id}>
+        <li>{planet.name}</li>
+      </div>
+    );
   });
-  return <h1>{renderFavPlanents}</h1>;
+  return <div>{renderFavs}</div>;
 };
 
 export default Favourites;

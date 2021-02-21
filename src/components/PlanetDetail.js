@@ -3,10 +3,6 @@ import data from "../data";
 import "../planetDetail.css";
 
 const PlanetDetail = ({ selectedPlanet }) => {
-  useEffect(() => {
-    console.log("I'm running");
-  }, []);
-
   const renderPlanet = data
     .filter((planet) => {
       return planet.name === selectedPlanet;
