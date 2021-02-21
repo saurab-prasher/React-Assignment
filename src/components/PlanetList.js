@@ -5,13 +5,17 @@ const PlanetList = ({ list, onPlanetSelect, onFavPlanetSelect }) => {
     return (
       <div key={item.id} className="list-container">
         <li onClick={() => onPlanetSelect(item.name)}>{item.name}</li>
-        <input
-          type="checkbox"
-          defaultChecked={item.isFavourite}
-          onChange={(e) => {
-            onFavPlanetSelect(e, item);
-          }}
-        />
+        <div className="check-container">
+          <p>Add to Fav</p>
+          <input
+            id="check"
+            type="checkbox"
+            defaultChecked={item.isFavourite}
+            onChange={(e) => {
+              onFavPlanetSelect(e, item);
+            }}
+          />
+        </div>
       </div>
     );
   });
