@@ -24,7 +24,10 @@ const App = () => {
 
   const onFavPlanetSelect = (e, planet) => {
     if (e.target.checked) {
-      setFavPlanet((oldArray) => [...oldArray, planet]);
+      setFavPlanet((oldArray) => [
+        ...oldArray,
+        { id: planet.id, isFavourite: !planet.isFavourite, name: planet.name },
+      ]);
     }
     if (!e.target.checked) {
       const name = planet.name;
@@ -33,11 +36,6 @@ const App = () => {
     }
   };
 
-  const renderFavPlanents = favPlanet.map((planet) => {
-    return <div key={planet.id}>{planet.name}</div>;
-  });
-
-  console.log(renderFavPlanents);
   const onPlanetSelect = (name) => {
     setSelectedPlanet(name);
   };
@@ -60,6 +58,11 @@ const App = () => {
             </section>
           </main>
         </Route>
+
+        <Route
+          path="/favourites"
+          render={() => <Favourites favPlanets={favPlanet} />}
+        />
       </Router>
     </>
   );
