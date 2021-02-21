@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Heart from "./Heart";
+
 import PlanetList from "./PlanetList";
 import PlanetDetail from "./PlanetDetail";
 

@@ -5,7 +5,7 @@ import "../planetDetail.css";
 const PlanetDetail = ({ selectedPlanet }) => {
   useEffect(() => {
     console.log("I'm running");
-  });
+  }, []);
 
   const renderPlanet = data
     .filter((planet) => {
@@ -13,10 +13,12 @@ const PlanetDetail = ({ selectedPlanet }) => {
     })
     .map((planet) => {
       return (
-        <div className="planet-detail" key={planet.id}>
-          <img src={planet.image} alt={planet.name}></img>
-          <h3>{planet.name}</h3>
-          <p>{planet.description}</p>
+        <div className="planet-container" key={planet.id}>
+          <img src={planet.image} alt={planet.name} />
+          <div className="planet-info">
+            <h2>{planet.name}</h2>
+            <p>{planet.description}</p>
+          </div>
         </div>
       );
     });
