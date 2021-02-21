@@ -1,10 +1,12 @@
 .planet-container {
-  width: 50%;
+  width: 70%;
+  margin-left: auto;
 }
 
 .planet-container img {
   display: block;
   border: 2px solid #eae6eb;
+  border-radius: 0.5rem;
   height: 300px;
   width: 300px;
   margin: auto;
@@ -12,11 +14,18 @@
 
 .planet-info {
   border: 2px solid #eae6eb;
+  border-radius: 1rem;
   padding: 10px;
 }
 
 .planet-info h2 {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 1rem;
+}
+
+.underline {
+  width: 6rem;
+  height: 0.25rem;
+  background: #eae6eb;
+  margin: auto;
 }

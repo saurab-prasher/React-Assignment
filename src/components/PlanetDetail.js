@@ -17,6 +17,7 @@ const PlanetDetail = ({ selectedPlanet }) => {
           <img src={planet.image} alt={planet.name} />
           <div className="planet-info">
             <h2>{planet.name}</h2>
+            <div className="underline"></div>
             <p>{planet.description}</p>
           </div>
         </div>
