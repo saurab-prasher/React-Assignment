@@ -1,20 +1,19 @@
 import React from "react";
 
-const PlanetList = ({ list, onPlanetSelect, onFavPlanetSelect }) => {
+const PlanetList = ({
+  list,
+  onPlanetSelect,
+  onFavPlanetSelect,
+  onAddToFavClick,
+}) => {
   const renderedList = list.map((item) => {
     return (
       <div key={item.id} className="list-container">
         <li onClick={() => onPlanetSelect(item.name)}>{item.name}</li>
         <div className="check-container">
-          <p>Add to Fav</p>
-          <input
-            id="check"
-            type="checkbox"
-            defaultChecked={item.isFavourite}
-            onChange={(e) => {
-              onFavPlanetSelect(e, item);
-            }}
-          />
+          <button className="btn" onClick={() => onAddToFavClick(item)}>
+            like
+          </button>
         </div>
       </div>
     );

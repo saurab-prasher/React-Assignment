@@ -1,10 +1,15 @@
 import React from "react";
 
-const Favourites = ({ favPlanets }) => {
+const Favourites = ({ favPlanets, onRmFavClick }) => {
   const renderFavs = favPlanets.map((planet) => {
     return (
       <div key={planet.id}>
-        <li className="fav-list">{planet.name}</li>
+        <li className="fav-list">
+          {planet.name}{" "}
+          <button className="btn" onClick={() => onRmFavClick(planet)}>
+            remove
+          </button>
+        </li>
       </div>
     );
   });
