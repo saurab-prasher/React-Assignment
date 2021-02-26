@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import data from "../data";
 import "../planetDetail.css";
 
 const PlanetDetail = ({ selectedPlanet }) => {
+  useEffect(() => {
+    console.count("Inside planet Detail");
+  });
   const filterPlanet = data.filter((planet) => {
     return planet.name === selectedPlanet;
   });

@@ -1,25 +1,19 @@
 import React from "react";
+import PlanetItem from "./PlanetItem";
 
-const PlanetList = ({
-  list,
-  onPlanetSelect,
-  onFavPlanetSelect,
-  onAddToFavClick,
-}) => {
-  const renderedList = list.map((item) => {
+const PlanetList = React.memo(({ list, onPlanetSelect, onAddToFavClick }) => {
+  const renderedList = list.map((planet) => {
     return (
-      <div key={item.id} className="list-container">
-        <li onClick={() => onPlanetSelect(item.name)}>{item.name}</li>
-        <div className="check-container">
-          <button className="btn" onClick={() => onAddToFavClick(item)}>
-            like
-          </button>
-        </div>
-      </div>
+      <PlanetItem
+        key={planet.id}
+        onPlanetSelect={onPlanetSelect}
+        onAddToFavClick={onAddToFavClick}
+        planet={planet}
+      />
     );
   });
 
   return <ul className="list">{renderedList}</ul>;
-};
+});
 
 export default PlanetList;

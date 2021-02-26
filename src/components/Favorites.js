@@ -5,7 +5,7 @@ const Favourites = ({ favPlanets, onRmFavClick }) => {
     return (
       <div key={planet.id}>
         <li className="fav-list">
-          {planet.name}{" "}
+          {planet.name}
           <button className="btn" onClick={() => onRmFavClick(planet)}>
             remove
           </button>

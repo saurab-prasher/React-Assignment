@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Modal = ({ modalContent }) => {
   return <h3>{modalContent}</h3>;
