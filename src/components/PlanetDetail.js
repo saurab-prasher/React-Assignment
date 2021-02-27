@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import data from "../data";
 import "../planetDetail.css";
+import { useGlobalContext } from "../context";
 
-const PlanetDetail = ({ selectedPlanet }) => {
-  useEffect(() => {
-    console.count("Inside planet Detail");
-  });
+const PlanetDetail = () => {
+  const { selectedPlanet } = useGlobalContext();
+
   const filterPlanet = data.filter((planet) => {
-    return planet.name === selectedPlanet;
+    return planet.name === selectedPlanet.name;
   });
 
   const renderPlanet = filterPlanet.map((planet) => {

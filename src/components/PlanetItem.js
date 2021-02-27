@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
-
-const PlanetItem = ({ planet, onPlanetSelect, onAddToFavClick }) => {
+import React from "react";
+import { useGlobalContext } from "../context";
+import planets from "../data";
+const PlanetItem = ({ planet }) => {
+  const { onPlanetSelect, addToFav, favPlanet } = useGlobalContext();
   return (
     <div className="list-container">
-      <li onClick={() => onPlanetSelect(planet.name)}>{planet.name}</li>
+      <li onClick={() => onPlanetSelect(planet)}>{planet.name}</li>
       <div className="check-container">
-        <button className="btn" onClick={() => onAddToFavClick(planet)}>
+        <button className="btn" onClick={() => addToFav(planet, favPlanet)}>
           like
         </button>
       </div>

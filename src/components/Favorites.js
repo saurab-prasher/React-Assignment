@@ -1,12 +1,15 @@
 import React from "react";
 
-const Favourites = ({ favPlanets, onRmFavClick }) => {
+import { useGlobalContext } from "../context";
+
+const Favourites = () => {
+  const { favPlanets, removeFromFav } = useGlobalContext();
   const renderFavs = favPlanets.map((planet) => {
     return (
       <div key={planet.id}>
         <li className="fav-list">
           {planet.name}
-          <button className="btn" onClick={() => onRmFavClick(planet)}>
+          <button className="btn" onClick={() => removeFromFav(planet)}>
             remove
           </button>
         </li>

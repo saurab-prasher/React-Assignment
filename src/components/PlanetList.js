@@ -1,16 +1,11 @@
 import React from "react";
 import PlanetItem from "./PlanetItem";
+import { useGlobalContext } from "../context";
 
-const PlanetList = React.memo(({ list, onPlanetSelect, onAddToFavClick }) => {
-  const renderedList = list.map((planet) => {
-    return (
-      <PlanetItem
-        key={planet.id}
-        onPlanetSelect={onPlanetSelect}
-        onAddToFavClick={onAddToFavClick}
-        planet={planet}
-      />
-    );
+const PlanetList = React.memo(() => {
+  const { planetList } = useGlobalContext();
+  const renderedList = planetList.map((planet) => {
+    return <PlanetItem key={planet.id} planet={planet} />;
   });
 
   return <ul className="list">{renderedList}</ul>;
