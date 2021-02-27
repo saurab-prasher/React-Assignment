@@ -1,25 +1,29 @@
 .planet-container {
-  width: 70%;
-  margin-left: auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  margin: 0 4rem;
 }
 
 .planet-container img {
   display: block;
   border: 2px solid #eae6eb;
   border-radius: 0.5rem;
-  height: 300px;
-  width: 300px;
-  margin: auto;
+  width: 19rem;
+  grid-column: 1 / span 2;
 }
 
 .planet-info {
   border: 2px solid #eae6eb;
   border-radius: 1rem;
+  justify-self: start;
+  margin: auto;
   padding: 10px;
+  grid-column: 1 / span 2;
 }
 
 .planet-info h2 {
-  font-size: 2rem;
   text-align: center;
 }
 
@@ -27,5 +31,5 @@
   width: 6rem;
   height: 0.25rem;
   background: #eae6eb;
-  margin: auto;
+  margin: 0.5rem auto;
 }

@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import reducer from "./components/reducer";
 
-// KovYCFZ0AQZzU1ybV67XslQK1IJq5Y5UxKV5aG2p
-
 const AppContext = React.createContext();
 
 const initialState = {
@@ -28,14 +26,14 @@ const AppProvider = ({ children }) => {
     getPlanets();
   }, []);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     state.isModalOpen = !state.isModalOpen;
-  //   }, 2000);
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, [state.isModalOpen]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatch({ type: "MODAL_CLOSE" });
+    }, 2000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [state.isModalOpen]);
 
   const addToFav = (planet) => {
     dispatch({

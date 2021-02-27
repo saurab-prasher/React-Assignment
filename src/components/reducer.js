@@ -43,7 +43,14 @@ const reducer = (state, action) => {
     };
   }
 
-  return state;
+  if (action.type === "MODAL_CLOSE") {
+    return {
+      ...state,
+      isModalOpen: false,
+    };
+  }
+
+  throw new Error("This dispatch isn't handled");
 };
 
 export default reducer;

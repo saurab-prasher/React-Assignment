@@ -10,16 +10,6 @@ import Modal from "./Modal";
 
 const App = () => {
   const { isModalOpen } = useGlobalContext();
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-
-  //   }, 2000);
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, [isModalOpen]);
-
   return (
     <>
       <Router>

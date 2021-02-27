@@ -1,6 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "../context";
-import planets from "../data";
+
 const PlanetItem = ({ planet }) => {
   const { onPlanetSelect, addToFav, favPlanet } = useGlobalContext();
   return (
